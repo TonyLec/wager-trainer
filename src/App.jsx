@@ -9,11 +9,11 @@ const RS_FS = 40;
 const GOLDEN_FS = 30;
 
 const NAMES = [
-  "Alex Johnson","Taylor Smith","Jordan Brown","Casey Miller","Drew Davis",
+  "Alex Johnson","Roberto","Jordan Brown","Alberto","Drew Davis",
   "Morgan Wilson","Jamie Moore","Cameron Taylor","Reese Anderson","Quinn Thomas",
-  "Avery Jackson","Riley White","Skyler Harris","Peyton Martin","Harper Thompson",
+  "Blanca","Riley White","Tony L.","Peyton Martin","Harper Thompson",
   "Logan Garcia","Charlie Martinez","Emerson Robinson","Finley Clark","Hayden Rodriguez",
-  "Rowan Lewis","Sawyer Lee","Parker Walker","Dakota Hall","Jesse Allen",
+  "Rowan Lewis","Sawyer Lee","Brian","Dakota Hall","Jesse Allen",
   "Kendall Young","Blake King","Micah Wright","River Scott"
 ];
 
