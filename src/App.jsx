@@ -7,7 +7,7 @@ const GOLDEN_GV_REGULAR = 15;
 const RS_FS = 40;
 const GOLDEN_FS = 30;
 
-const NAMES = ["Alex Johnson","Taylor Smith","Jordan Brown","Casey Miller","Drew Davis","Morgan Wilson","Jamie Moore","Cameron Taylor","Reese Anderson","Quinn Thomas","Avery Jackson","Riley White","Skyler Harris","Peyton Martin","Harper Thompson","Logan Garcia","Charlie Martinez","Emerson Robinson","Finley Clark","Hayden Rodriguez","Rowan Lewis","Sawyer Lee","Parker Walker","Dakota Hall","Jesse Allen","Kendall Young","Blake King","Micah Wright","River Scott"];
+const NAMES = ["Alex Johnson","Tony L.","Jordan Brown","Blanca","Drew Davis","Brian","Roberto","Cameron Taylor","Alberto","Quinn Thomas","Avery Jackson","Riley White","Skyler Harris","Peyton Martin","Harper Thompson","Logan Garcia","Charlie Martinez","Emerson Robinson","Finley Clark","Hayden Rodriguez","Rowan Lewis","Sawyer Lee","Parker Walker","Dakota Hall","Jesse Allen","Kendall Young","Blake King","Micah Wright","River Scott"];
 
 const formatMoney = (n) => n.toLocaleString(undefined, { style: "currency", currency: "USD" });
 
