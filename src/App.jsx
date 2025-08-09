@@ -7,7 +7,14 @@ const GOLDEN_GV_REGULAR = 15;
 const RS_FS = 40;
 const GOLDEN_FS = 30;
 
-const NAMES = ["Alex Johnson","Tony L.","Jordan Brown","Blanca","Drew Davis","Brian","Roberto","Cameron Taylor","Alberto","Quinn Thomas","Avery Jackson","Riley White","Skyler Harris","Peyton Martin","Harper Thompson","Logan Garcia","Charlie Martinez","Emerson Robinson","Finley Clark","Hayden Rodriguez","Rowan Lewis","Sawyer Lee","Parker Walker","Dakota Hall","Jesse Allen","Kendall Young","Blake King","Micah Wright","River Scott"];
+const NAMES = [
+  "Alex Johnson","Taylor Smith","Jordan Brown","Casey Miller","Drew Davis",
+  "Morgan Wilson","Jamie Moore","Cameron Taylor","Reese Anderson","Quinn Thomas",
+  "Avery Jackson","Riley White","Skyler Harris","Peyton Martin","Harper Thompson",
+  "Logan Garcia","Charlie Martinez","Emerson Robinson","Finley Clark","Hayden Rodriguez",
+  "Rowan Lewis","Sawyer Lee","Parker Walker","Dakota Hall","Jesse Allen",
+  "Kendall Young","Blake King","Micah Wright","River Scott"
+];
 
 const formatMoney = (n) => n.toLocaleString(undefined, { style: "currency", currency: "USD" });
 
@@ -78,15 +85,15 @@ export default function WagerTrainer() {
     const bonusPct = generateBonusPercent(casino, isWelcome, bonusType);
     let fsWinnings = diff === "easy" ? 0 : diff === "medium" ? pick([0, 5, 10, 15, 20, 25, 50, 75, 100, 150, 199]) : parseFloat((Math.random() * 198.99 + 1).toFixed(2));
     const { bonus, total } = computeTotal({ casino, isWelcome, deposit, bonusPct, fsWinnings });
-    const fsText = fsWinnings > 0 ?  I also won ${formatMoney(fsWinnings)} from free spins. : "";
-    const introText = isWelcome ? for my ${bonusPct === 275 ? 'first time depositing' : 'welcome bonus'} (${bonusPct}%) : and claimed a ${bonusPct}% ${bonusType.toLowerCase()} bonus;
+    const fsText = fsWinnings > 0 ? ` I also won ${formatMoney(fsWinnings)} from free spins.` : "";
+    const introText = isWelcome ? `for my ${bonusPct === 275 ? 'first time depositing' : 'welcome bonus'} (${bonusPct}%)` : `and claimed a ${bonusPct}% ${bonusType.toLowerCase()} bonus`;
     const customerName = pick(NAMES);
-    setPrompt(💬 ${customerName}: Hi, I just deposited ${formatMoney(deposit)} at ${casino} Casino ${introText}. Can you tell me my total wagers?${fsText});
+    setPrompt(`💬 ${customerName}: Hi, I just deposited ${formatMoney(deposit)} at ${casino} Casino ${introText}. Can you tell me my total wagers?${fsText}`);
     setAnswer("");
     setFeedback(null);
     setShowBreakdown(false);
     setCorrectAnswer(total.toFixed(2));
-    setBreakdown(🏢 Casino: ${casino}\n🎁 Bonus type: ${isWelcome ? "Welcome bonus" : ${bonusType} bonus}\n💵 Deposit: ${formatMoney(deposit)}\n📈 Bonus %: ${bonusPct}%\n🎰 Free spin winnings: ${fsWinnings > 0 ? formatMoney(fsWinnings) : "none"}\n💲 Bonus amount: ${formatMoney(bonus)}\n✅ Total wagers: ${formatMoney(total)});
+    setBreakdown(`🏢 Casino: ${casino}\n🎁 Bonus type: ${isWelcome ? "Welcome bonus" : `${bonusType} bonus`}\n💵 Deposit: ${formatMoney(deposit)}\n📈 Bonus %: ${bonusPct}%\n🎰 Free spin winnings: ${fsWinnings > 0 ? formatMoney(fsWinnings) : "none"}\n💲 Bonus amount: ${formatMoney(bonus)}\n✅ Total wagers: ${formatMoney(total)}`);
     if (ticker.current) clearInterval(ticker.current);
     setTimer(0);
     setRunning(true);
@@ -114,7 +121,7 @@ export default function WagerTrainer() {
   const handleDifficultyChange = (e) => { const next = e.target.value; setDifficulty(next); generateScenario(next); };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto text-stone-100" style={{ background: "linear-gradient(135deg, #1f1f1f, #2b2b2b)", minHeight: "100vh" }}>
+    <div className="p-6 max-w-3xl mx-auto text-stone-100" style={{ background: "linear-gradient(135deg, #1f1f1f, #2b2b2b)", minHeight: "100vh", position: "relative" }}>
       <h1 className="text-4xl font-extrabold mb-4 text-yellow-400 drop-shadow">🎯 Wager Requirements Trainer</h1>
       <div className="text-sm mb-4 flex flex-wrap gap-4 items-center bg-gray-800 p-3 rounded-lg shadow">
         <span>⏱ Timer: <b>{timer.toFixed(1)}s</b></span>
@@ -144,8 +151,8 @@ export default function WagerTrainer() {
             <button onClick={generateScenario} className="bg-purple-500 text-white px-4 py-2 rounded shadow">New Scenario</button>
           </div>
           {feedback && (
-            <p className={mt-1 font-bold ${feedback === 'correct' ? 'text-green-400' : 'text-red-400'}}>
-              {feedback === 'correct' ? '✅ Correct!' : ❌ Incorrect. Correct answer was ${formatMoney(Number(correctAnswer))}}
+            <p className={`mt-1 font-bold ${feedback === 'correct' ? 'text-green-400' : 'text-red-400'}`}>
+              {feedback === 'correct' ? '✅ Correct!' : `❌ Incorrect. Correct answer was ${formatMoney(Number(correctAnswer))}`}
             </p>
           )}
           {showBreakdown && (
@@ -153,6 +160,26 @@ export default function WagerTrainer() {
           )}
         </>
       )}
+
+      {/* Watermark Signature */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: "10px",
+          right: "10px",
+          fontSize: "12px",
+          color: "#888",
+          background: "rgba(255,255,255,0.5)",
+          padding: "4px 8px",
+          borderRadius: "5px",
+          zIndex: 9999,
+        }}
+      >
+        Made in Aug 2025 — All code rights reserved to @TonyLec
+      </div>
     </div>
   );
 }
+
+// Console signature
+console.log("Made in Aug 2025 — All code rights reserved to @TonyLec");
