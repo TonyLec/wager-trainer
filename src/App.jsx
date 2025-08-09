@@ -8,7 +8,7 @@ const CONFIG = {
   "Golden GV": { label: "Golden GV", wager: { regular: 15 }, fsMult: 30 },
 };
 
-const NAMES = ["Alex Johnson", "Taylor Smith", "Jordan Brown", "Casey Miller", "Drew Davis", "Morgan Wilson", "Jamie Moore", "Cameron Taylor", "Reese Anderson", "Quinn Thomas", "Avery Jackson", "Riley White", "Skyler Harris", "Peyton Martin", "Harper Thompson", "Logan Garcia", "Charlie Martinez", "Emerson Robinson", "Finley Clark", "Hayden Rodriguez", "Rowan Lewis", "Sawyer Lee", "Parker Walker", "Dakota Hall", "Jesse Allen", "Kendall Young", "Blake King", "Micah Wright", "River Scott"];
+const NAMES = ["Tony L", "Taylor Smith", "Alberto", "Casey Miller", "Drew Davis", "Blanca", "Roberto", "Cameron Taylor", "Brian", "Quinn Thomas", "Avery Jackson", "Riley White", "Skyler Harris", "Peyton Martin", "Harper Thompson", "Logan Garcia", "Charlie Martinez", "Emerson Robinson", "Finley Clark", "Hayden Rodriguez", "Rowan Lewis", "Sawyer Lee", "Parker Walker", "Dakota Hall", "Jesse Allen", "Kendall Young", "Blake King", "Micah Wright", "River Scott"];
 
 const formatMoney = (n) => n.toLocaleString(undefined, { style: "currency", currency: "USD" });
 const randPick = (arr) => arr[Math.floor(Math.random() * arr.length)];
